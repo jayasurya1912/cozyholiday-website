@@ -921,6 +921,7 @@ body {
 .dest-content h5 {
   font-weight: 600;
   font-family: 'Playfair Display', serif;
+  font-size: 33px;
 }
 
 .dest-price {
@@ -1594,4 +1595,236 @@ body {
 .cs-whatsapp-btn:hover {
     transform: scale(1.1);
     background: #1ebe5d;
+}
+.what-we-do{
+background:#f8fafc;
+}
+
+.section-title{
+font-weight:700;
+font-size:32px;
+color:#0b2a4a;
+}
+
+.section-subtitle{
+color:#666;
+max-width:650px;
+margin:auto;
+}
+
+.service-card{
+background:linear-gradient(#0b132b,#30958e);
+border-radius:18px;
+padding:35px 25px;
+text-align:center;
+transition:0.4s ease;
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
+height:100%;
+position:relative;
+overflow:hidden;
+color: white;
+border-top-left-radius: 50px;
+border-top-right-radius: 50px;
+}
+
+.service-card:hover{
+transform:translateY(-10px);
+box-shadow:0 20px 50px rgba(0,0,0,0.15);
+}
+
+.service-icon{
+width:70px;
+height:70px;
+margin:auto;
+border-radius:50%;
+background:white;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:28px;
+color:#30958e;
+margin-bottom:18px;
+animation:floatIcon 3s infinite ease-in-out;
+}
+
+.service-card h5{
+font-weight:600;
+margin-bottom:10px;
+ font-family: 'Playfair Display', serif;
+
+}
+
+.service-card p{
+font-size:14px;
+color:white;
+}
+
+/* icon floating animation */
+@keyframes floatIcon{
+0%{transform:translateY(0)}
+50%{transform:translateY(-6px)}
+100%{transform:translateY(0)}
+}
+
+/* mobile spacing fix */
+@media(max-width:768px){
+
+.section-title{
+font-size:26px;
+}
+
+.service-card{
+padding:25px 20px;
+}
+
+}
+.tour-section{
+background:#e8ffff;
+}
+
+.section-title{
+font-weight:700;
+color:#0b2a4a;
+}
+
+.tour-card{
+position:relative;
+overflow:hidden;
+border-radius:18px;
+height:260px;
+cursor:pointer;
+box-shadow:0 10px 30px rgba(0,0,0,0.1);
+transition:0.4s ease;
+}
+
+.tour-card img{
+width:100%;
+height:100%;
+object-fit:cover;
+transition:0.5s ease;
+}
+
+/* overlay */
+.tour-overlay{
+position:absolute;
+bottom:0;
+left:0;
+width:100%;
+padding:20px;
+color:#fff;
+background:linear-gradient(to top,rgba(0,0,0,0.8),rgba(0,0,0,0));
+transition:0.4s ease;
+}
+
+.tour-overlay h5{
+font-weight:600;
+margin-bottom:5px;
+ font-family: 'Playfair Display', serif;
+ font-size: 30px;
+}
+
+.tour-overlay p{
+font-size:14px;
+opacity:0;
+transform:translateY(20px);
+transition:0.4s;
+}
+
+/* hover animation */
+.tour-card:hover img{
+transform:scale(1.1);
+}
+
+.tour-card:hover .tour-overlay p{
+opacity:1;
+transform:translateY(0);
+}
+
+.tour-card:hover{
+transform:translateY(-6px);
+box-shadow:0 20px 40px rgba(0,0,0,0.2);
+}
+
+/* responsive */
+@media(max-width:768px){
+
+.tour-card{
+height:230px;
+}
+
+}
+#preloader{
+  position:fixed;
+  width:100%;
+  height:100%;
+  background:#0b2a4a;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
+}
+
+/* loader box */
+.travel-loader{
+  text-align:center;
+  color:white;
+  font-family:'Poppins',sans-serif;
+}
+
+/* animated pins */
+.pins{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  margin-bottom:15px;
+}
+
+.pins span{
+  width:14px;
+  height:14px;
+  border-radius:50%;
+  background:#ff730f;
+  animation:bounce 1.2s infinite ease-in-out;
+}
+
+/* delay animation */
+.pins span:nth-child(2){
+  animation-delay:0.2s;
+}
+
+.pins span:nth-child(3){
+  animation-delay:0.4s;
+}
+
+/* loading text */
+.travel-loader p{
+  font-size:16px;
+  letter-spacing:1px;
+  animation:fadeText 2s infinite;
+}
+
+/* bounce animation */
+@keyframes bounce{
+
+0%,100%{
+transform:translateY(0);
+}
+
+50%{
+transform:translateY(-12px);
+}
+
+}
+
+/* text animation */
+@keyframes fadeText{
+
+0%,100%{
+opacity:0.5;
+}
+
+50%{
+opacity:1;
+}
+
 }
