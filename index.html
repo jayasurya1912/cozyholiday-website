@@ -29,6 +29,59 @@
   </div>
 </div>
 
+
+<div class="tourAutoPopup" id="tourAutoPopup">
+
+<div class="tourPopupCard">
+
+<div class="tourPopupHeader">
+
+<span class="tourClose">&times;</span>
+
+<i class="fa-solid fa-plane-departure"></i>
+
+<h4>Plan Your Dream Trip</h4>
+<p>Get the best tour packages</p>
+
+</div>
+
+<div class="tourPopupBody">
+
+<form id="tourForm">
+
+<div class="tourInputGroup">
+<i class="fa fa-user"></i>
+<input type="text" id="name" placeholder="Full Name" required>
+</div>
+
+<div class="tourInputGroup">
+<i class="fa fa-phone"></i>
+<input type="tel" id="phone" placeholder="Phone Number" required>
+</div>
+
+<div class="tourInputGroup">
+<i class="fa fa-location-dot"></i>
+<input type="text" id="destination" placeholder="Destination">
+</div>
+
+<div class="tourInputGroup">
+<i class="fa fa-calendar"></i>
+<input type="date" id="date">
+</div>
+
+<button type="submit" class="tourWhatsappBtn">
+<i class="fa-brands fa-whatsapp"></i> Send Enquiry
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+
 <!-- ===== TOPBAR START ===== -->
 <div class="topbar py-2">
   <div class="container">
@@ -69,7 +122,7 @@
         <div class="social-icons">
           <a href="https://www.facebook.com/share/1CRF2FbKPb/"><i class="fab fa-facebook-f"></i></a>
           <a href=" https://www.instagram.com/the_cozy_holidays?igsh=bXY5Nm8zeWZvYmUz"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-youtube"></i></a>
+          <a href="https://youtube.com/@thecozyholidays?si=fRYI86u0Nvo9jgvZ"><i class="fab fa-youtube"></i></a>
           <a href="#"><i class="fab fa-linkedin-in"></i></a>
         </div>
 
@@ -1054,7 +1107,7 @@ Cozy Holiday – Luxury Dubai Packages | Malaysia Island Tours | Premium NRI Tra
       <div class="col-md-4">
         <div class="marquee">
           <div class="marquee-track">
-            <img src="images/bhurj.png" />
+            <img src="images/viet.jpg" />
             <img src="images/feature.jpg" />
             <img src="images/cruise.jpg" />
             <!-- duplicate for seamless loop -->
@@ -1270,7 +1323,7 @@ Cozy Holiday – Luxury Dubai Packages | Malaysia Island Tours | Premium NRI Tra
     <div class="footer-social text-center mt-4">
       <a href="https://www.facebook.com/share/1CRF2FbKPb/"><i class="fab fa-facebook-f"></i></a>
       <a href="https://www.instagram.com/the_cozy_holidays?igsh=bXY5Nm8zeWZvYmUz"><i class="fab fa-instagram"></i></a>
-      <a href="#"><i class="fab fa-youtube"></i></a>
+      <a href="https://youtube.com/@thecozyholidays?si=fRYI86u0Nvo9jgvZ"><i class="fab fa-youtube"></i></a>
       <a href="https://wa.me/918197449155?text=Hello%20%F0%9F%91%8B%2C%20I%20am%20interested%20in%20your%20tour%20packages.%20Could%20you%20please%20share%20more%20details%20about%20available%20destinations%2C%20pricing%2C%20and%20customized%20travel%20options%3F%20I%20would%20love%20to%20plan%20a%20memorable%20trip%20with%20your%20team.%20Thank%20you%21%20%E2%9C%88%EF%B8%8F" target="_blank"><i class="fab fa-whatsapp"></i></a>
     </div>
 
@@ -1390,6 +1443,51 @@ document.getElementById("contactForm").addEventListener("submit", function(e){
   window.open(whatsappURL, "_blank");
 
 });
+</script>
+<script>
+
+/* Auto open after 5 seconds */
+
+setTimeout(function(){
+
+document.getElementById("tourAutoPopup").classList.add("active");
+
+},5000);
+
+
+/* Close popup */
+
+document.querySelector(".tourClose").onclick=function(){
+
+document.getElementById("tourAutoPopup").classList.remove("active");
+
+}
+
+
+/* WhatsApp integration */
+
+document.getElementById("tourForm").addEventListener("submit",function(e){
+
+e.preventDefault();
+
+let name=document.getElementById("name").value;
+let phone=document.getElementById("phone").value;
+let destination=document.getElementById("destination").value;
+let date=document.getElementById("date").value;
+
+let message=`Hello, I want tour details.
+
+Name: ${name}
+Phone: ${phone}
+Destination: ${destination}
+Travel Date: ${date}`;
+
+let whatsappURL=`https://wa.me/918197449155?text=${encodeURIComponent(message)}`;
+
+window.open(whatsappURL,"_blank");
+
+});
+
 </script>
 </body>
 </html>

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Tour Popup Form</title>
+
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+/* Button */
+.open-popup{
+margin:120px auto;
+display:block;
+font-size:18px;
+padding:12px 28px;
+}
+
+/* Popup Background */
+
+.tour-popup{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.6);
+display:none;
+align-items:center;
+justify-content:center;
+z-index:9999;
+}
+
+/* Popup Box */
+
+.tour-popup-content{
+background:#fff;
+padding:35px;
+border-radius:12px;
+width:90%;
+max-width:420px;
+position:relative;
+animation:popupAnimation .4s ease;
+box-shadow:0 10px 35px rgba(0,0,0,0.3);
+}
+
+/* Animation */
+
+@keyframes popupAnimation{
+from{
+transform:translateY(-60px);
+opacity:0;
+}
+to{
+transform:translateY(0);
+opacity:1;
+}
+}
+
+/* Close Button */
+
+.close-popup{
+position:absolute;
+right:15px;
+top:10px;
+font-size:24px;
+cursor:pointer;
+}
+
+/* Heading */
+
+.tour-popup-content h3{
+text-align:center;
+margin-bottom:25px;
+font-weight:600;
+color:#333;
+}
+
+/* Form Groups */
+
+.form-group{
+position:relative;
+margin-bottom:18px;
+}
+
+.form-group i{
+position:absolute;
+left:12px;
+top:12px;
+color:#777;
+}
+
+.form-group input{
+width:100%;
+padding:10px 10px 10px 38px;
+border:1px solid #ddd;
+border-radius:6px;
+}
+
+/* Button */
+
+.submit-btn{
+width:100%;
+background:#25D366;
+color:white;
+border:none;
+padding:12px;
+border-radius:6px;
+font-size:16px;
+transition:.3s;
+}
+
+.submit-btn:hover{
+background:#1ebe5d;
+}
+
+/* Mobile */
+
+@media(max-width:576px){
+
+.tour-popup-content{
+padding:25px;
+}
+
+}
+
+</style>
+
+</head>
+<body>
+
+
+<!-- Open Popup Button -->
+
+<button class="btn btn-success open-popup">
+<i class="fa-solid fa-plane-departure"></i> Book Your Tour
+</button>
+
+
+
+<!-- Popup Form -->
+
+<div class="tour-popup" id="tourPopup">
+
+<div class="tour-popup-content">
+
+<span class="close-popup">&times;</span>
+
+<h3>
+<i class="fa-solid fa-earth-asia"></i>
+Plan Your Dream Tour
+</h3>
+
+<form id="tourForm">
+
+<div class="form-group">
+<i class="fa fa-user"></i>
+<input type="text" id="name" placeholder="Full Name" required>
+</div>
+
+<div class="form-group">
+<i class="fa fa-phone"></i>
+<input type="tel" id="phone" placeholder="Phone Number" required>
+</div>
+
+<div class="form-group">
+<i class="fa fa-location-dot"></i>
+<input type="text" id="destination" placeholder="Preferred Destination">
+</div>
+
+<div class="form-group">
+<i class="fa fa-calendar"></i>
+<input type="date" id="date">
+</div>
+
+<button type="submit" class="submit-btn">
+<i class="fa-brands fa-whatsapp"></i>
+Send on WhatsApp
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+
+
+<script>
+
+/* Open Popup */
+
+document.querySelector(".open-popup").onclick=function(){
+document.getElementById("tourPopup").style.display="flex";
+}
+
+/* Close Popup */
+
+document.querySelector(".close-popup").onclick=function(){
+document.getElementById("tourPopup").style.display="none";
+}
+
+/* WhatsApp Integration */
+
+document.getElementById("tourForm").addEventListener("submit",function(e){
+
+e.preventDefault();
+
+let name=document.getElementById("name").value;
+let phone=document.getElementById("phone").value;
+let destination=document.getElementById("destination").value;
+let date=document.getElementById("date").value;
+
+let message=`Hello, I want to book a tour.
+
+Name: ${name}
+Phone: ${phone}
+Destination: ${destination}
+Travel Date: ${date}`;
+
+let whatsappURL=`https://wa.me/918197449155?text=${encodeURIComponent(message)}`;
+
+window.open(whatsappURL,"_blank");
+
+});
+
+</script>
+
+
+</body>
+</html>
